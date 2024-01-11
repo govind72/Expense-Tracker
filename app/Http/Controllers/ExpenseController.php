@@ -38,6 +38,7 @@ class ExpenseController extends Controller
             'description' => 'required|max:150',
             'date' => 'required',
             'category' => 'nullable|string',
+            'spent' => 'bool'
         ]);
     
         $expense = Expense::create([
@@ -45,6 +46,7 @@ class ExpenseController extends Controller
             'description' => $request->description,
             'date' => $request->date,
             'category' => $request->category,
+            'spent' => $request->spent,
             'user_id' => $request->user()->id,
         ]);
     
@@ -89,6 +91,7 @@ class ExpenseController extends Controller
             'description' => 'string',
             'date' => 'date',
             'category' => 'nullable|string',
+            'spent' => 'bool'
         ]);
     
         try {
@@ -101,6 +104,7 @@ class ExpenseController extends Controller
                 'description' =>  $request->description ? $request->description : $expense->description,
                 'date' => $request->date ? $request->date : $expense->date,
                 'category' => $request->category ? $request->category : $expense->category,
+                'spent' => $request->spent ? $request->spent : $expense->spent,
             ]);
     
             // Return success response
