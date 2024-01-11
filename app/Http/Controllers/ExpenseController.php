@@ -104,7 +104,7 @@ class ExpenseController extends Controller
                 'description' =>  $request->description ? $request->description : $expense->description,
                 'date' => $request->date ? $request->date : $expense->date,
                 'category' => $request->category ? $request->category : $expense->category,
-                'spent' => $request->spent ? $request->spent : $expense->spent,
+                'spent' => $request->spent,
             ]);
     
             // Return success response
